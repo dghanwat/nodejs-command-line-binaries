@@ -14,7 +14,7 @@ Above are only a few examples where you would want your Node.js application to c
 
 ## Introduction
 
-Node.js allows us to execute a system binary within a child process and listen in on its input/output. This includes being able to pass arguments to the command, and even pipe the results of one command to another.
+Node.js allows us to execute a system binary within a child process and listen in on its input/output. This includes being able to invoke, pass arguments, read streaming or buffered output back into Node.js 
 
 Most commonly used functions to perform this are:
 
@@ -232,7 +232,7 @@ To understand that lets look at what do these functions return; `spawn` returns 
 
 ## Conclusion
 
-Using `child_process` module, Node.js allows us to run a system binary within a child process and listen in on its input/output. Its completely asynchronous, event driven communication and we have two variations for achieving of it. 
+Using `child_process` module, Node.js allows us to run a system binary within a child process and listen in on its input/output. Its completely asynchronous, event driven communication and we have two variations for achieving it. 
 
 `spawn` when you want to work on streaming process
 
