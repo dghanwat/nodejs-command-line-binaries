@@ -2,12 +2,11 @@
 
 In today's lesson we will learn about  `child_process` module of Node.js which allows you to execute processes in your environment. In other words your Node.js app can run and communicate with other applications on the computer that it is hosted on. 
 
-
-
 ## Use case
 
 - Node is designed for efficient I/O processes, but sometimes applications require more CPU intensive work, which may block the main event. So you may want to off shoot the CPU intensive work to another process.
 - Node.js is one of the most adopted web development technologies but it lacks support (so far) for machine learning, deep learning and artificial intelligence libraries. Luckily, technologies like Python supports all these and many more other features. So you may want to leverage these features in your Node.js app.
+- You want to do a batch processing with regular checkpoint and based on the checkpoint you wish to do some status reporting from Node.js app 
 
 Above are only few examples where you would want you Node.js application to communicate with external binaries.
 
@@ -206,20 +205,24 @@ So we were able to spawn a python script from our Node.js application and you ca
 
 ## `execFile`
 
+`todo`
 
-
-## Compassion between `exec` and `spwan`  
+## Compassion between `exec` and `spawn`  
 
 So here we have seen two functions two functions `spawn` and `exec`, using which we can start a child process to execute other programs on the system. You  may wonder why there are two functions to do the same thing, and which one you should use when.
 
 The most significant difference between `child_process.spawn` and `child_process.exec` is in what they return - spawn returns a stream and exec returns a buffer
 
-`spawn` is "asynchronously asynchronous", meaning it starts sending back data from the child process in a stream as soon as the child process starts executing. So you should use `spawn` when your process return a large amount of data like - image processing, reading binary data. Basically anything where you think streaming can be used
+`spawn`  starts sending back data from the child process in a stream as soon as the child process starts executing. So you should use `spawn` when your process return a large amount of data like - image processing, reading binary data. Basically anything where you think streaming can be used
 
-`exec` is "synchronously asynchronous", meaning although the exec is asynchronous, it waits for the child process to end and tries to return all the buffered data at once. If the buffer size of `exec` is not set big enough, it fails with a "maxBuffer exceeded" error. So you should use `exec` when you want the child process to return simple outputs like status messages etc
+`exec` although is asynchronous, it waits for the child process to end and tries to return all the buffered data at once. If the buffer size of `exec` is not set big enough, it fails with a "maxBuffer exceeded" error. So you should use `exec` when you want the child process to return simple outputs like status messages etc
 
 
 
 ## Conclusion
 
-Using 
+Using `child_process` module, Node.js allows us to run a system binary within a child process and listen in on its input/output.
+
+Use `spawn` when you want to work on streaming applications
+
+Use `exec` when you want are interested in only the final result of the process.
