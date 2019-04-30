@@ -17,7 +17,8 @@ exec("git version",function(err,stdout) {
         throw err;
     }
 
-    console.log("Git version finished");
     // Log the output received from the child process
     console.log(stdout);
+    console.log("Git version finished");
+    
 });
